@@ -1,8 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: grafana-dashboards
-  labels:
-    grafana_dashboard: "1"
-data:
-  kubernetes.json: {{ .Files.Get "grafana-dashboards/default_grafana_dashboard.json" | toJson | indent 4 }}
