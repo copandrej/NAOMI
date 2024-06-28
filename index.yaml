@@ -3,7 +3,37 @@ entries:
   SEMR:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-27T13:46:54.172657914+02:00"
+    created: "2024-06-28T13:46:11.922089009+02:00"
+    dependencies:
+    - condition: mlflow.enabled
+      name: mlflow
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 0.11.0
+    - condition: minio.enabled
+      name: minio
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 14.6.0
+    - condition: flyte-binary.enabled
+      name: flyte-binary
+      repository: https://flyteorg.github.io/flyte
+      version: 1.10.6
+    - name: kuberay-operator
+      repository: https://ray-project.github.io/kuberay-helm/
+      version: 1.0.0-rc.0
+    - condition: kube-prometheus-stack.enabled
+      name: kube-prometheus-stack
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 48.2.1
+    description: A Helm chart for Kubernetes
+    digest: 0992e482a6154f2a77b6fc7f2a4b7f595db5d5073d98e1c64b6f9e645330abd4
+    name: SEMR
+    type: application
+    urls:
+    - SEMR-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2024-06-28T13:46:11.720927287+02:00"
     dependencies:
     - name: mlflow
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -30,7 +60,7 @@ entries:
   SEMR_inference:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-06-27T13:46:54.173704148+02:00"
+    created: "2024-06-28T13:46:11.923036217+02:00"
     description: A Helm chart for Kubernetes
     digest: d297bddbf44f66688c062166c0b66f41326aa57d9bb17cd0114d90e5b1dec791
     name: SEMR_inference
@@ -38,4 +68,4 @@ entries:
     urls:
     - SEMR_inference-0.3.0.tgz
     version: 0.3.0
-generated: "2024-06-27T13:46:53.932028626+02:00"
+generated: "2024-06-28T13:46:11.500128557+02:00"
