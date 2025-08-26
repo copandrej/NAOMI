@@ -2,8 +2,38 @@ apiVersion: v1
 entries:
   NAOMI:
   - apiVersion: v2
+    appVersion: 0.3.0
+    created: "2025-08-26T12:08:22.890909895+02:00"
+    dependencies:
+    - condition: mlflow.enabled
+      name: mlflow
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 5.1.15
+    - condition: minio.enabled
+      name: minio
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 17.0.21
+    - condition: flyte-binary.enabled
+      name: flyte-binary
+      repository: https://flyteorg.github.io/flyte
+      version: 1.15.3
+    - name: kuberay-operator
+      repository: https://ray-project.github.io/kuberay-helm/
+      version: 1.4.2
+    - condition: kube-prometheus-stack.enabled
+      name: kube-prometheus-stack
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 76.4.1
+    description: NAOMI Helm chart for Kubernetes
+    digest: 0328afc7b968605aa1c3bde60f23d1d731b94fb44d4467ee53cedc4090a13090
+    name: NAOMI
+    type: application
+    urls:
+    - NAOMI-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v2
     appVersion: 0.2.0
-    created: "2025-05-21T10:03:11.860777554+02:00"
+    created: "2025-08-26T12:08:22.705223599+02:00"
     dependencies:
     - condition: mlflow.enabled
       name: mlflow
@@ -33,7 +63,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2025-05-21T10:03:11.627282216+02:00"
+    created: "2025-08-26T12:08:22.549574961+02:00"
     dependencies:
     - condition: mlflow.enabled
       name: mlflow
@@ -64,7 +94,7 @@ entries:
   SEMR:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-05-21T10:03:12.65591446+02:00"
+    created: "2025-08-26T12:08:23.530055171+02:00"
     dependencies:
     - condition: mlflow.enabled
       name: mlflow
@@ -94,7 +124,7 @@ entries:
     version: 0.1.3
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-05-21T10:03:12.460570914+02:00"
+    created: "2025-08-26T12:08:23.348410085+02:00"
     dependencies:
     - condition: mlflow.enabled
       name: mlflow
@@ -124,7 +154,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-05-21T10:03:12.237153051+02:00"
+    created: "2025-08-26T12:08:23.182854386+02:00"
     dependencies:
     - condition: mlflow.enabled
       name: mlflow
@@ -154,7 +184,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-05-21T10:03:12.049657288+02:00"
+    created: "2025-08-26T12:08:23.021307789+02:00"
     dependencies:
     - name: mlflow
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -181,7 +211,7 @@ entries:
   SEMR_inference:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-05-21T10:03:12.66879606+02:00"
+    created: "2025-08-26T12:08:23.541235497+02:00"
     description: A Helm chart for Kubernetes
     digest: d297bddbf44f66688c062166c0b66f41326aa57d9bb17cd0114d90e5b1dec791
     name: SEMR_inference
@@ -189,4 +219,4 @@ entries:
     urls:
     - SEMR_inference-0.3.0.tgz
     version: 0.3.0
-generated: "2025-05-21T10:03:11.338075248+02:00"
+generated: "2025-08-26T12:08:22.34261486+02:00"
