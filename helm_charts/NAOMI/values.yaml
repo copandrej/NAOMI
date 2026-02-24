@@ -6,10 +6,10 @@ general:
 # Ray
 #
 ################################################
-rayVersion: "2.48.0"
+rayVersion: "2.54.0"
 headGroupSpecs:
   rayHead:
-    image: copandrej/ijs-custom:ray-amd64-ray248
+    image: copandrej/ijs-custom:ray-amd64-ray254
     resources:
       limits:
         cpu: "2"
@@ -29,7 +29,7 @@ workerGroups:
     rayStartParams:
       numCpus: "1"
     container:
-      image: copandrej/ijs-custom:ray-amd64-ray248
+      image: copandrej/ijs-custom:ray-amd64-ray254
       resources:
         limits:
           cpu: "1"
@@ -37,10 +37,6 @@ workerGroups:
         requests:
           cpu: "1"
           memory: "6G"
-#      ports:
-#        - 9900
-#      nodePorts:
-#        - 30070
 
   aarchGroup:
     replicas: 0
@@ -49,7 +45,7 @@ workerGroups:
     rayStartParams:
       numCpus: "1"
     container:
-      image: rayproject/ray:2.48.0 # BUG: can't build the arm image currently so NAOMI on arm doens't work
+      image: copandrej/ijs-custom:ray-aarch64-ray254
       resources:
         limits:
           cpu: "1"
@@ -57,10 +53,6 @@ workerGroups:
         requests:
           cpu: "1"
           memory: "5G"
-#      ports:
-#        - 9900
-#      nodePorts:
-#        - 30070
 
 kuberay-operator:
   nodeSelector:
@@ -137,6 +129,8 @@ minio:
     nodePorts:
       api: "30085"
   console:
+    image:
+        repository: "bitnamilegacy/minio-object-browser"
     service:
       type: NodePort
       ports:

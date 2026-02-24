@@ -9,9 +9,7 @@ VM_IP=localhost
 # Enable addons
 microk8s status --wait-ready
 microk8s enable dns
-microk8s enable ingress
 microk8s enable storage
-microk8s enable dashboard
 microk8s status --wait-ready
 
 # Alias microk8s kubectl to kubectl, if kubectl not installed

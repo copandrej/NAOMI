@@ -83,10 +83,6 @@ spec:
                   requests:
                     cpu: "{{ .Values.workerGroups.amdGroup.container.resources.requests.cpu }}"
                     memory: "{{ .Values.workerGroups.amdGroup.container.resources.requests.memory }}"
-                ports:
-                  {{- range .Values.workerGroups.amdGroup.container.ports }}
-                    - containerPort: {{ . }}
-                  {{- end }}
             nodeSelector:
               kubernetes.io/arch: "amd64"
 
@@ -109,9 +105,5 @@ spec:
                   requests:
                     cpu: "{{ .Values.workerGroups.aarchGroup.container.resources.requests.cpu }}"
                     memory: "{{ .Values.workerGroups.aarchGroup.container.resources.requests.memory }}"
-                ports:
-                  {{- range .Values.workerGroups.aarchGroup.container.ports }}
-                  - containerPort: {{ . }}
-                  {{- end }}
             nodeSelector:
               kubernetes.io/arch: "arm64"

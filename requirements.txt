@@ -1,4 +1,4 @@
-ray[train,tune,serve,data,rllib] == 2.48.0
+ray[train,tune,serve,data,rllib] == 2.54.0
 fastapi[all] == 0.114.1
 keras == 2.15.0
 mlflow == 3.2.0

@@ -15,9 +15,6 @@ then
   exit
 fi
 
-# Disable default Traefik; install Nginx for compatibility with microk8s
-kubectl delete -n kube-system helmcharts.helm.cattle.io traefik
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.2/deploy/static/provider/cloud/deploy.yaml
 
 # custom StorageClass in k3s with name microk8s-hostpath for compatibility with microk8s
 kubectl apply -f - <<EOF

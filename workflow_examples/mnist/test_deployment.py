@@ -21,7 +21,7 @@ def test_deploy() -> None:
 
     # Send a POST request with the image file
     with open("my.png", "rb") as image_file:
-        response = requests.post(f"http://{SYSTEM_IP}/ray-api/mnist/", files={"file": image_file})
+        response = requests.post(f"http://{SYSTEM_IP}:30003/mnist/", files={"file": image_file})
 
     # Log the response and check if the test passed
     response_json = response.json()

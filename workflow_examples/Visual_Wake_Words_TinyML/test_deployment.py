@@ -25,7 +25,7 @@ def test_deploy() -> None:
         "instances": [random_image.tolist()]  # shape (1, 96, 96, 3)
     }
 
-    url = f"http://{SYSTEM_IP}/ray-api/VWW/"
+    url = f"http://{SYSTEM_IP}:30003/VWW/"
 
     try:
         response = requests.post(url, json=data)

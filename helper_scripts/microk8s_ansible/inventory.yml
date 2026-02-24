@@ -1,11 +1,9 @@
 all:
   vars:
-    microk8s: "1.33/stable"
+    microk8s: "1.35/stable"
     addons:
       - dns
       - storage
-      - dashboard
-      - ingress
     username: "<username>"
   children:
     head_nodes:

@@ -27,7 +27,7 @@ def test_deploy() -> None:
     }
 
 
-    response = requests.post(f"http://{SYSTEM_IP}/ray-api/qoe/", json=data)
+    response = requests.post(f"http://{SYSTEM_IP}:30003/qoe/", json=data)
     response_json = response.json()
     logging.info(response_json)
     print(response_json)

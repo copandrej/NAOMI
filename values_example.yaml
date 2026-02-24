@@ -5,7 +5,7 @@ general:
 
 # Ray
 # Ray can't be disabled currently
-rayVersion: "2.35.0"
+rayVersion: "2.54.0"
 headGroupSpecs:
   rayHead:
     resources:
@@ -32,6 +32,23 @@ workerGroups:
         requests:
           cpu: "4"
           memory: "6G"
+
+  # For Raspbery Pis:
+
+  # aarchGroup:
+  #   replicas: 1
+  #   minReplicas: 1
+  #   maxReplicas: 1
+  #   rayStartParams:
+  #     numCpus: "1"
+  #   container:
+  #     resources:
+  #       limits:
+  #         cpu: "1"
+  #         memory: "5G"
+  #       requests:
+  #         cpu: "1"
+  #         memory: "5G"
 
 # MLflow
 mlflow:

@@ -1,18 +1,18 @@
 dependencies:
 - name: mlflow
   repository: oci://registry-1.docker.io/bitnamicharts
-  version: 5.1.15
+  version: 5.1.17
 - name: minio
   repository: oci://registry-1.docker.io/bitnamicharts
   version: 17.0.21
 - name: flyte-binary
-  repository: https://flyteorg.github.io/flyte
-  version: v1.15.3
+  repository: https://helm.flyte.org
+  version: v1.16.4
 - name: kuberay-operator
   repository: https://ray-project.github.io/kuberay-helm/
-  version: 1.4.2
+  version: 1.5.1
 - name: kube-prometheus-stack
   repository: https://prometheus-community.github.io/helm-charts
   version: 76.4.1
-digest: sha256:85b5c9d260a7e1577ba5795f1aefca8fe355d46e75010cb5853415085e872b47
-generated: "2025-10-01T15:08:58.906804961+02:00"
+digest: sha256:364f4a0240959df665d8816298c50f2a7e3d0a7b7580680df5be00f31102532d
+generated: "2026-02-24T13:07:46.415802601+01:00"

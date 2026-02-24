@@ -20,7 +20,7 @@ def test_deploy() -> None:
         "instances": [random_image]
     }
 
-    url = f"http://{SYSTEM_IP}/ray-api/ImClass/"
+    url = f"http://{SYSTEM_IP}:30003/ImClass/"
 
     try:
         response = requests.post(url, json=data)

@@ -27,7 +27,7 @@ It is modular and can be adjusted to different use cases and requirements.
 
 #### 1. Kubernetes cluster 
 Skip this step if you already have a kubernetes cluster with required addons.
-- Install microk8s with addons: `dns`, `storage`, `ingress` or run install script `./helper_scripts/system-install.sh`
+- Install microk8s with addons: `dns`, `storage`, or run install script `./helper_scripts/system-install.sh`
 
 - (Optional) Run install script `./helper_scripts/rasp-install.sh` on any raspberry pi node you want to join to the cluster.
 - (Optional) Ansible playbook for installing microk8s on multiple nodes: `./helper_scripts/microk8s_ansible/` (requires ssh access and ansible)
@@ -39,10 +39,8 @@ Skip this step if you already have a kubernetes cluster with required addons.
 
 ```bash
 helm repo add naomi_charts https://copandrej.github.io/NAOMI/
-helm install naomi naomi_charts/NAOMI --version 0.3.2 --values values_example.yaml -n your_namespace
+helm install naomi naomi_charts/NAOMI --version 0.4.0 --values values_example.yaml -n your_namespace
 ```
-> [!IMPORTANT]
-> Helm version should be between 3.14 and 3.17
 
 
 #### 3. Environment
@@ -69,7 +67,7 @@ After the system is deployed, users can access the components through the follow
 System should be deployed in a closed network as access to dashboards and APIs is not secured.
 
 #### Dashboards
-- Ray: `http://<node_ip>/ray/`
+- Ray: `http://<node_ip>:30265/`
 - Flyte: `http://<node_ip>:31082/`
 - MinIO: `http://<node_ip>:30090/`
 - Grafana: `http://<node_ip>:30000/`
