@@ -1,25 +1,21 @@
 FROM python:3.10-slim-buster
 
 WORKDIR /root
-ENV VENV /opt/venv
-ENV LANG C.UTF-8
-ENV LC_ALL C.UTF-8
-ENV PYTHONPATH /root
+ENV LANG=C.UTF-8
+ENV LC_ALL=C.UTF-8
+ENV PYTHONPATH=/root
 
-
-ENV VENV /opt/venv
-# Virtual environment
-RUN python3 -m venv ${VENV}
-ENV PATH="${VENV}/bin:$PATH"
+# Install uv
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /usr/local/bin/uv
+ENV UV_PYTHON_DOWNLOADS=never
 
 # Install Python dependencies
 COPY requirements.txt /root
-RUN python -m pip install --upgrade pip
-RUN pip install -r /root/requirements.txt
+RUN uv pip install --system -r /root/requirements.txt
 
-# installing mltk here, as it doesn't resolve dependencies properly when installed from requirements.txt
+# Installing mltk separately, as it has an incompatible protobuf constraint with flytekit
 # This is needed for TinyML example workflows
-RUN pip install silabs-mltk[full]==0.19.0
+RUN uv pip install --system --no-deps silabs-mltk[full]==0.19.0
 
 # Copy the actual code
 COPY . /root
@@ -27,4 +23,4 @@ COPY . /root
 # This tag is supplied by the build script and will be used to determine the version
 # when registering tasks, workflows, and launch plans
 ARG tag
-ENV FLYTE_INTERNAL_IMAGE $tag
+ENV FLYTE_INTERNAL_IMAGE=$tag

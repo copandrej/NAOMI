@@ -6,7 +6,7 @@ Install silabs-mltk[full]==0.19.0 in your environment.
 
 1. Run the workflow with Flyte CLI; --batch_size is batch size, --epochs is num of epochs to train:
     ```bash
-   pyflyte run --remote --env SYSTEM_IP=$(hostname -I | awk '{print $1}') --image copandrej/flyte_workflow:8 workflow.py image_classification_workflow --batch_size 10 --epochs 1
+   pyflyte run --remote --env SYSTEM_IP=$(hostname -I | awk '{print $1}') --image copandrej/flyte_workflow:9 workflow.py image_classification_workflow --batch_size 10 --epochs 1
     ```
 2. Monitor the progress on dashboards.
 

@@ -114,6 +114,8 @@ flyte-binary:
         k8s:
           default-env-vars:
             - FLYTE_AWS_ENDPOINT: "http://$HOST_IP:30085"
+            - FLYTE_AWS_ACCESS_KEY_ID: "minio"
+            - FLYTE_AWS_SECRET_ACCESS_KEY: "miniostorage"
        
 minio:
   enabled: true

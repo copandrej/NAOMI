@@ -45,7 +45,17 @@ helm install naomi naomi_charts/NAOMI --version 0.4.0 --values values_example.ya
 
 #### 3. Environment
 This step is only required for running example AI/ML workflows.
-- Run config script `./helper_scripts/env-prepare.sh` on VM to install requirements and connect flytectl to the cluster for running AI/ML workflows.
+The project uses [uv](https://docs.astral.sh/uv/) for dependency management. Install uv and sync dependencies:
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+uv sync
+```
+Then connect flytectl to the cluster:
+```bash
+curl -sL https://ctl.flyte.org/install | sudo bash -s -- -b /usr/local/bin
+flytectl config init --host=<CLUSTER_IP>:31081 --console=<CLUSTER_IP>:31082 --insecure
+```
+Alternatively, run `./helper_scripts/env-prepare.sh`.
 
 ## Configurations
 
@@ -93,7 +103,7 @@ Quality of Experience (QoE) prediction is a workflow example adjusted from O-RAN
 1. Populate MinIO with file `insert.py` in `workflow_examples/qoe_prediction/populate_minio/` (Change IP endpoint of MinIO in the script).
 2. Run the workflow with Flyte CLI; --bt_s is batch size, --n is dataset size (1, 10, 100):
     ```bash
-   pyflyte run --remote --env SYSTEM_IP=$(hostname -I | awk '{print $1}') --image copandrej/flyte_workflow:8 wf.py qoe_train --bt_s 10 --n 1
+   pyflyte run --remote --env SYSTEM_IP=$(hostname -I | awk '{print $1}') --image copandrej/flyte_workflow:9 wf.py qoe_train --bt_s 10 --n 1
    ```
 3. Monitor the progress on dashboards.
 
@@ -104,7 +114,7 @@ A workflow example for distributed data processing, distributed model training, 
 1. Populate MinIO with file `populate.py` in `workflow_examples/mnist/populate_minio/` (Change IP endpoint of MinIO in the script).
 2. Run the workflow with Flyte CLI from `workflow_examples/mnist/` directory:
     ```bash
-    pyflyte run --remote --env SYSTEM_IP=$(hostname -I | awk '{print $1}') --image copandrej/flyte_workflow:8 wf.py mnist_train
+    pyflyte run --remote --env SYSTEM_IP=$(hostname -I | awk '{print $1}') --image copandrej/flyte_workflow:9 wf.py mnist_train
 
     ```
 3. Monitor the progress on dashboards.

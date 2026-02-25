@@ -5,7 +5,7 @@ Quality of Experience (QoE) prediction is a workflow example adjusted from O-RAN
 1. Populate MinIO with file `insert.py` in `workflow_examples/qoe_prediction/populate_minio/` (Change IP endpoint of MinIO in the script).
 2. Run the workflow with Flyte CLI; --bt_s is batch size, --n is dataset size (1, 10, 100):
     ```bash
-   pyflyte run --remote --env SYSTEM_IP=$(hostname -I | awk '{print $1}') --image copandrej/flyte_workflow:8 wf.py qoe_train --bt_s 10 --n 1
+   pyflyte run --remote --env SYSTEM_IP=$(hostname -I | awk '{print $1}') --image copandrej/flyte_workflow:9 wf.py qoe_train --bt_s 10 --n 1
     ```
 3. Monitor the progress on dashboards.
 

@@ -1,30 +1,16 @@
 #!/bin/bash
 
-# Check if conda is installed
-if ! which conda > /dev/null; then
-    # install miniconda
-    wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh
-    bash ~/miniconda.sh -b -p $HOME/miniconda3
-    rm ~/miniconda.sh
-
-    # initialize conda
-    conda init bash
-    eval "$($HOME/miniconda3/bin/conda shell.bash hook)"
-    export PATH=$PATH:$HOME/miniconda3/condabin
+# Check if uv is installed, install if not
+if ! command -v uv > /dev/null 2>&1; then
+    echo "Installing uv package manager..."
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+    export PATH="$HOME/.local/bin:$PATH"
 fi
 
-# Check if the 'ray' environment exists
-if ! conda env list | grep -q '^ray '; then
-    # Create the 'ray' environment
-    conda create -n ray python=3.10 -y
-fi
+# Create virtual environment and sync dependencies
+uv sync || { echo "pyproject.toml not found. Did you run the script from the root of the repository?"; exit 1; }
 
-# Activate the 'ray' environment
-source /$HOME/miniconda3/bin/activate ray
-
-# install pip and requirements
-conda install -y pip
-pip install -r requirements.txt  || { echo "requirements file not found. Did you run the script from the root of the repository?"; exit 1; }
+# Install flytectl
 curl -sL https://ctl.flyte.org/install | sudo bash -s -- -b /usr/local/bin
 
 # Ask the user if Kubernetes is running on the same machine
@@ -41,12 +27,9 @@ case ${answer:0:1} in
     ;;
 esac
 
-#connect flyte
+# Connect flyte
 flytectl config init --host=$IP:31081 --console=$IP:31082 --insecure
 
-rm temp.yaml # cleanup
-export PATH=$PATH:$HOME/miniconda3/bin
+rm -f temp.yaml # cleanup
 echo "Run to start using env:"
-echo "conda init bash"
-echo "source ~./bashrc"
-echo "conda activate ray"
+echo "source .venv/bin/activate"

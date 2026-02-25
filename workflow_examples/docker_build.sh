@@ -10,7 +10,7 @@ PROJECT_NAME="flyte_workflow"
 
 VERSION="5"
 
-while getopts a:r:v:h flag
+while getopts p:r:v:h flag
 do
     case "${flag}" in
         p) PROJECT_NAME=${OPTARG};;
@@ -18,11 +18,11 @@ do
         v) VERSION=${OPTARG};;
         h) echo "Usage: ${0} [-h|[-p <project_name>][-r <registry_name>][-v <version>]]"
            echo "  h: help (this message)"
-           echo "  p: PROJECT_NAME for your workflows. Defaults to 'mnist'."
+           echo "  p: PROJECT_NAME for your workflows. Defaults to 'flyte_workflow'."
            echo "  r: REGISTRY name where the docker container should be pushed. Defaults to none - localhost"
            echo "  v: VERSION of the build. Defaults to using the current git head SHA"
            exit 1;;
-        *) echo "Usage: ${0} [-h|[-a <project_name>][-r <registry_name>][-v <version>]]"
+        *) echo "Usage: ${0} [-h|[-p <project_name>][-r <registry_name>][-v <version>]]"
            exit 1;;
     esac
 done

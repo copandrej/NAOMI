@@ -1,0 +1,24 @@
+[project]
+name = "NAOMI"
+version = "0.4.0"
+description = "NAOMI is a production MLOps solution designed for deployment on a heterogeneous Kubernetes cluster"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "argparse>=1.4.0",
+    "evaluate>=0.4.6",
+    "fastapi[all]==0.114.1",
+    "flytekit==1.15.4",
+    "keras==2.15.0",
+    "kubernetes>=35.0.0",
+    "minio>=7.2.20",
+    "mlflow==3.2.0",
+    "numpy>=1.26.4",
+    "pandas<=2.1.4",
+    "pillow>=12.1.1",
+    "prometheus-api-client==0.5.5",
+    "ray[data,rllib,serve,train,tune]==2.54.0",
+    "requests>=2.32.5",
+    "s3fs>=2025.12.0",
+    "tensorflow==2.15.1",
+]
