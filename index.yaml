@@ -2,8 +2,38 @@ apiVersion: v1
 entries:
   NAOMI:
   - apiVersion: v2
+    appVersion: 0.4.1
+    created: "2026-03-02T09:18:06.933792675+01:00"
+    dependencies:
+    - condition: mlflow.enabled
+      name: mlflow
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 5.1.17
+    - condition: minio.enabled
+      name: minio
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 17.0.21
+    - condition: flyte-binary.enabled
+      name: flyte-binary
+      repository: https://helm.flyte.org
+      version: 1.16.4
+    - name: kuberay-operator
+      repository: https://ray-project.github.io/kuberay-helm/
+      version: 1.5.1
+    - condition: kube-prometheus-stack.enabled
+      name: kube-prometheus-stack
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 76.4.1
+    description: NAOMI Helm chart for Kubernetes
+    digest: a2ac9cd633fcba2061d47b24536327e9cbaf6087625f9280777cbde072595d80
+    name: NAOMI
+    type: application
+    urls:
+    - https://copandrej.github.io/NAOMI/NAOMI-0.4.1.tgz
+    version: 0.4.1
+  - apiVersion: v2
     appVersion: 0.4.0
-    created: "2026-02-24T13:24:53.911240529+01:00"
+    created: "2026-03-02T09:18:06.836638689+01:00"
     dependencies:
     - condition: mlflow.enabled
       name: mlflow
@@ -33,7 +63,7 @@ entries:
     version: 0.4.0
   - apiVersion: v2
     appVersion: 0.3.2
-    created: "2026-02-24T13:24:53.820894027+01:00"
+    created: "2026-03-02T09:18:06.740020975+01:00"
     dependencies:
     - condition: mlflow.enabled
       name: mlflow
@@ -63,7 +93,7 @@ entries:
     version: 0.3.2
   - apiVersion: v2
     appVersion: 0.3.1
-    created: "2026-02-24T13:24:53.736546979+01:00"
+    created: "2026-03-02T09:18:06.64044866+01:00"
     dependencies:
     - condition: mlflow.enabled
       name: mlflow
@@ -93,7 +123,7 @@ entries:
     version: 0.3.1
   - apiVersion: v2
     appVersion: 0.3.0
-    created: "2026-02-24T13:24:53.649523521+01:00"
+    created: "2026-03-02T09:18:06.53670472+01:00"
     dependencies:
     - condition: mlflow.enabled
       name: mlflow
@@ -123,7 +153,7 @@ entries:
     version: 0.3.0
   - apiVersion: v2
     appVersion: 0.2.0
-    created: "2026-02-24T13:24:53.557923408+01:00"
+    created: "2026-03-02T09:18:06.437729278+01:00"
     dependencies:
     - condition: mlflow.enabled
       name: mlflow
@@ -153,7 +183,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2026-02-24T13:24:53.483667083+01:00"
+    created: "2026-03-02T09:18:06.361909018+01:00"
     dependencies:
     - condition: mlflow.enabled
       name: mlflow
@@ -184,7 +214,7 @@ entries:
   SEMR:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-02-24T13:24:54.189155788+01:00"
+    created: "2026-03-02T09:18:07.258623156+01:00"
     dependencies:
     - condition: mlflow.enabled
       name: mlflow
@@ -214,7 +244,7 @@ entries:
     version: 0.1.3
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-02-24T13:24:54.123499973+01:00"
+    created: "2026-03-02T09:18:07.173696728+01:00"
     dependencies:
     - condition: mlflow.enabled
       name: mlflow
@@ -244,7 +274,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-02-24T13:24:54.055469252+01:00"
+    created: "2026-03-02T09:18:07.093593482+01:00"
     dependencies:
     - condition: mlflow.enabled
       name: mlflow
@@ -274,7 +304,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-02-24T13:24:53.988257049+01:00"
+    created: "2026-03-02T09:18:07.018418167+01:00"
     dependencies:
     - name: mlflow
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -301,7 +331,7 @@ entries:
   SEMR_inference:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-02-24T13:24:54.189452917+01:00"
+    created: "2026-03-02T09:18:07.259415405+01:00"
     description: A Helm chart for Kubernetes
     digest: d297bddbf44f66688c062166c0b66f41326aa57d9bb17cd0114d90e5b1dec791
     name: SEMR_inference
@@ -309,4 +339,4 @@ entries:
     urls:
     - https://copandrej.github.io/NAOMI/SEMR_inference-0.3.0.tgz
     version: 0.3.0
-generated: "2026-02-24T13:24:53.388510695+01:00"
+generated: "2026-03-02T09:18:06.277609504+01:00"
